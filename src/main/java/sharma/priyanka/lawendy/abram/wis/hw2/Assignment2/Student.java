@@ -40,7 +40,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "sharma.priyanka.lawendy.abram.wis.hw2.Assignment2.Student {" +
+        return "Student {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", subject='" + subject + '\'' +
