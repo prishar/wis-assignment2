@@ -1,9 +1,7 @@
 package sharma.priyanka.lawendy.abram.wis.hw2.Assignment2;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import javafx.application.Application;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
@@ -20,6 +18,16 @@ class StudentService {
                               @RequestParam(value = "subject", defaultValue = "unknown") String subject) {
         Student student = new Student(name, subject);
         Assignment2Application.hmStudent.put(new Long(student.getId()), student);
+        return student;
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public Student updateStudent(@RequestBody Student student) throws Exception {
+        if (Assignment2Application.hmStudent.containsKey(new Long(student.getId()))) {
+            Assignment2Application.hmStudent.put(new Long(student.getId()), student);
+        } else {
+            throw new Exception("Student " + student.getId() + " does not exists");
+        }
         return student;
     }
 }
