@@ -1,5 +1,6 @@
 package sharma.priyanka.lawendy.abram.wis.hw2.Assignment2;//import java.util.Date;
-import java.util.Random;
+import java.util.Date;
+import java.util.UUID;
 
 public class Student {
     private long id;
@@ -11,8 +12,8 @@ public class Student {
 
     public Student(String name, String subject) {
 //        this.id = (new Date()).getTime();
-//        Use random numbers to display id if more then one students
-        this.id = (new Random()).nextLong();
+//        Use unique numbers to display id if more then one students
+        this.id = UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
         this.name = name;
         this.subject = subject;
     }
