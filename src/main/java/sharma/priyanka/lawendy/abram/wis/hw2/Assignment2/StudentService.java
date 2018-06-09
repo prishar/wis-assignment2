@@ -42,4 +42,9 @@ class StudentService {
         }
         return student;
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Student getStudent(@PathVariable long id) {
+        return Assignment2Application.hmStudent.get(new Long(id));
+    }
 }
